@@ -1,5 +1,6 @@
+const path = require('path');
 const express = require('express');
-const routes = require('./controller');
+const routes = require('./controller/');
 const session = require('express-session');
 const app = express();
 
@@ -17,6 +18,8 @@ const sess = {
         db: sequelize
     })
 };
+
+app.use(session(sess));
 // parses data into a json format
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
