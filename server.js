@@ -22,7 +22,7 @@ const sess = {
 app.use(session(sess));
 // parses data into a json format
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

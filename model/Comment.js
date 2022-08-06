@@ -16,9 +16,7 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                is: ["^[a-z]+$",'i'],
-                notEmpty: true
-            }
+                notEmpty: true,            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -39,6 +37,7 @@ Comment.init(
         sequelize,
         freezeTableName: true,
         timestamps: true,
+        underscored: true,
         createdAt: 'commentedAt',
         updatedAt: 'updatedCommentAt',
         modelName: 'comment'

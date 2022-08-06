@@ -1,5 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
+const saltRounds = 12;
+let password = 'garBageCan39*';
 
 class User extends Model {}
 
@@ -7,9 +10,9 @@ User.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
+            allowNull: false,
             autoIncrement: true,
-            allowNull: false
+            primaryKey: true,
         },
         username: {
             type: DataTypes.STRING,
@@ -20,7 +23,8 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true
+                isEmail: true,
+                msg: 'Must be a valid Email address.'
             }
         },
         password: {
@@ -31,18 +35,25 @@ User.init(
                 isUppercase: true,
                 isDecimal: true,
                 notEmpty: true,
-                len: [8,38],
+                len: [12,40],
                 is: {
                     args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$/,
-                    msg: "Password must be 8-38 characters and include UPPERCASE, lowercase, number and special character."
+                    msg: "Password must be 12-40 characters and include UPPERCASE, lowercase, number and special character."
                 },
             }
         }
     },
     {
+        // hooks: {
+        //     async beforeCreate(userInfo) {
+        //         userInfo.password = await bcrypt.hash(userInfo.password, )
+        //     }
+        // },
         sequelize,
         timestamps: false,
         freezeTableName: true,
+        underscored: true,
+        modelName: 'user'
     }
 );
 
