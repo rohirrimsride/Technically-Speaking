@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(65, 58, 92);
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+}
+
+.header {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.left, .right {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+a, .btn-logout {
+    background-color: rgb(65, 58, 92);
+    background: none;
+    border: none;
+    font-size: 120%;
+    padding: 0%;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+.post {
+    border: solid 5px rgba(0, 0, 0, 0.5);
+    margin: 15px 10px;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    margin-left: 10px;
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.author-date {
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.post-author-date {
+    display: flex;
+    align-items: center;
+}
+
+.body {
+    margin: 20px;
+    font-size: larger;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
