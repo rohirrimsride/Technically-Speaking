@@ -77,6 +77,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log(req.body.post_title);
     Post.create({
         post_title: req.body.post_title,
         post_data: req.body.post_data,

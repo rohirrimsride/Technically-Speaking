@@ -79,12 +79,15 @@ body {
 }
 
 .author-date {
+    display: flex;
+    /* justify-content: flex-end; */
     margin-right: 10px;
     color: rgba(255, 255, 255, 0.5);
 }
 
 .post-author-date {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     width: 30%;
 }
@@ -123,8 +126,9 @@ label {
     padding: 10px;
 }
 
-.login-btn, .signup-btn, .create-post-btn {
+.login-btn, .signup-btn, .create-post-btn, .update-post-btn {
     background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
     border: none;
     color: rgba(255, 255, 255, 0.5);
     font-size: large;
@@ -133,11 +137,27 @@ label {
 }
 /* End Login/Signup module */
 
-/* Begin Create-a-Post module */
+/* Begin Create/Update-a-Post module */
 .create-a-post {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.5);
+}
+
+.my-posts {
+    margin-left: 15px;
+}
+
+.update-post {
+    margin-left: 15px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: solid 5px rgba(0, 0, 0, 0);
 }
 /* End Create-a-Post module */
 

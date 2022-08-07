@@ -78,12 +78,17 @@ router.post('/login', (req, res) => {
         }
     })
     .then(dbUserData => {
+        console.log(req.body.email);
+        console.log(dbUserData.email);
         if (!dbUserData) {
             res.status(404).json({ message: 'The password is incorrect.' });
             return;
         }
         
         const confirmPassword = dbUserData.checkPassword(req.body.password);
+        console.log(dbUserData.password);
+        console.log(req.body.password);
+        console.log(confirmPassword);
         if (!confirmPassword) {
             res.status(404).json({ message: 'The password is incorrect.'});
             return;
