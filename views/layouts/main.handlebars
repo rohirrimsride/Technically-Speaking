@@ -13,11 +13,16 @@
         <nav class="nav-bar">
             <div class="left">
                 <a class="nav-link" href="/">Home</a>
+                {{#if loggedIn}}
                 <a class="nav-link" href="/dashboard">Dashboard</a>
+                {{/if}}
             </div>
             <div class="right">
-                <a class="nav-link" href="/login">Login</a>
-                <button id="logout" class="btn-logout">Logout</button> 
+                {{#if loggedIn}}
+                <button id="logout" class="btn-logout">Logout</button>
+                {{else}}
+                <a class="nav-link" href="/login">Login</a> 
+                {{/if}}
             </div>
         </nav>
     </header>
@@ -25,5 +30,8 @@
         {{{body}}}
     </main>
     <footer>Hope you enjoy the content!</footer>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
