@@ -2,9 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
-let password = 'garBageCan39*';
+// let password = 'garBageCan39*';
 
-class User extends Model {}
+class User extends Model {
+    checkPassword(loginPW) {
+        return bcrypt.compareSync(loginPW, this.password);
+    }
+}
 
 User.init(
     {
@@ -24,16 +28,12 @@ User.init(
             unique: true,
             validate: {
                 isEmail: true,
-                msg: 'Must be a valid Email address.'
             }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isLowercase: true,
-                isUppercase: true,
-                isDecimal: true,
                 notEmpty: true,
                 len: [12,40],
                 is: {
@@ -44,11 +44,16 @@ User.init(
         }
     },
     {
-        // hooks: {
-        //     async beforeCreate(userInfo) {
-        //         userInfo.password = await bcrypt.hash(userInfo.password, )
-        //     }
-        // },
+        hooks: {
+            async beforeCreate(userInfo) {
+                userInfo.password = await bcrypt.hash(userInfo.password, saltRounds);
+                return userInfo;
+            },
+            async beforeUpdate(updatedUserInfo) {
+                updatedUserInfo.password = await bcrypt.hash(updatedUserInfo.password, saltRounds);
+                return updatedUserInfo;
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,

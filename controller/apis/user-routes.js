@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { includes } = require('lodash');
 const { User, Post, Comment } = require('../../model');
 
 router.get('/', (req, res) => {
@@ -70,6 +69,43 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'The password is incorrect.' });
+            return;
+        }
+        
+        const confirmPassword = dbUserData.checkPassword(req.body.password);
+        if (!confirmPassword) {
+            res.status(404).json({ message: 'The password is incorrect.'});
+            return;
+        }
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+            
+            res.json({ message: 'Login successful'});
+        });
+    });
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;

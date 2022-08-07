@@ -1,28 +1,22 @@
-const router = require('express').Router;
 const router = require('express').Router();
 const { Post, User, Comment } = require('../model');
-// const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     console.log(req.session);
-    console.log('======================');
     Post.findAll({
-        where: {
-            // use the ID from the session
-            user_id: req.session.user_id
-        },
         attributes: [
             'id',
             'post_title',
             'post_data',
             'post_url',
-            'title',
-            'created_at',
+            'user_id',
+            'postedAt',
+            'updatedPostAt'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_data', 'post_id', 'user_id', 'commentedAt'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -35,9 +29,12 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
     .then(dbPostData => {
-        // serialize data before passing to template
+        // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+        res.render('homepage', {
+            posts,
+            loggedIn: req.session.loggedIn
+        });
     })
     .catch(err => {
         console.log(err);
@@ -45,18 +42,32 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/edit/:id',withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+router.get('/post/:id', (req, res) =>{
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
         attributes: [
             'id',
+            'post_title',
+            'post_data',
             'post_url',
-            'title',
-            'created_at',
+            'user_id',
+            'postedAt',
+            'updatedPostAt'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_data', 'post_id', 'user_id', 'commentedAt'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -69,16 +80,17 @@ router.get('/edit/:id',withAuth, (req, res) => {
         ]
     })
     .then(dbPostData => {
-        if(dbPostData) {
-            const post = dbPostData.get({ plain: true });
-            // pass data to template
-            res.render('edit-post', {
-                post,
-                loggedIn: true
-            }); 
-        } else {
-            res.status(404).end();
+        if(!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
         }
+        // serialize the data
+        const post = dbPostData.get({ plain: true });
+        // pass data to template
+        res.render('post-single', {
+            post,
+            loggedIn: req.session.loggedIn
+        });
     })
     .catch(err => {
         console.log(err);

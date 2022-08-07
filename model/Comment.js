@@ -39,7 +39,6 @@ Comment.init(
         timestamps: true,
         underscored: true,
         createdAt: 'commentedAt',
-        updatedAt: 'updatedCommentAt',
         modelName: 'comment'
     }
 );
