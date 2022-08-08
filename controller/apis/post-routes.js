@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
             'id',
             'post_title',
             'post_data',
-            // 'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
@@ -44,7 +43,6 @@ router.get('/:id', (req, res) => {
             'id',
             'post_title',
             'post_data',
-            // 'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
