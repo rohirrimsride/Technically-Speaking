@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(65, 58, 92);
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+}
+
+/* Begin Header/navbar module */
+.header {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.left, .right {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.nav-link, .btn-logout {
+    background-color: rgb(65, 58, 92);
+    background: none;
+    border: none;
+    font-size: 120%;
+    padding: 0%;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+/* End Header/navbar module */
+
+/* Begin Post(s) module */
+.post {
+    border: solid 5px rgba(0, 0, 0, 0.5);
+    margin: 15px 10px;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.post-title {
+    width: 70%;
+}
+
+.post-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.title {
+    margin-left: 10px;
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.5);
+    
+}
+
+.author-date {
+    display: flex;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.post-author-date {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.body {
+    margin: 20px;
+    font-size: larger;
+}
+/* End Post(s) module */
+
+/* Begin Login/Signup module */
+.login-form, .signup-form, .update-post, .create-post {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 30em;
+    border: solid 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+input {
+    border-radius: 5px;
+    margin: 10px;
+}
+
+label {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+}
+
+.login-btn, .signup-btn, .create-post-btn, .update-post-btn, .delete-post-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+}
+/* End Login/Signup module */
+
+/* Begin Create/Update-a-Post module */
+.create-a-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.5);
+}
+
+.my-posts {
+    margin-left: 15px;
+}
+
+.update-post-link {
+    margin-left: 15px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: solid 5px rgba(0, 0, 0, 0);
+}
+
+.delete-post-btn {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+/* End Create/Update-a-Post module */
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
