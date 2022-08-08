@@ -80,14 +80,12 @@ body {
 
 .author-date {
     display: flex;
-    /* justify-content: flex-end; */
     margin-right: 10px;
     color: rgba(255, 255, 255, 0.5);
 }
 
 .post-author-date {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     width: 30%;
 }
@@ -99,7 +97,7 @@ body {
 /* End Post(s) module */
 
 /* Begin Login/Signup module */
-.login-form, .signup-form, .new-post-form {
+.login-form, .signup-form, .update-post, .create-post {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -110,7 +108,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 20em;
+    width: 30em;
     border: solid 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
@@ -126,7 +124,7 @@ label {
     padding: 10px;
 }
 
-.login-btn, .signup-btn, .create-post-btn, .update-post-btn {
+.login-btn, .signup-btn, .create-post-btn, .update-post-btn, .delete-post-btn {
     background-color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
     border: none;
@@ -150,7 +148,7 @@ label {
     margin-left: 15px;
 }
 
-.update-post {
+.update-post-link {
     margin-left: 15px;
     font-weight: bolder;
     text-decoration: none;
@@ -159,7 +157,12 @@ label {
     border-radius: 5px;
     border: solid 5px rgba(0, 0, 0, 0);
 }
-/* End Create-a-Post module */
+
+.delete-post-btn {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+/* End Create/Update-a-Post module */
 
 footer {
     display: flex;

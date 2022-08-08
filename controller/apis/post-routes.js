@@ -2,12 +2,13 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../../model');
 
 router.get('/', (req, res) => {
+    console.log(req.body)
     Post.findAll({
         attributes: [
             'id',
             'post_title',
             'post_data',
-            'post_url',
+            // 'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
@@ -43,7 +44,7 @@ router.get('/:id', (req, res) => {
             'id',
             'post_title',
             'post_data',
-            'post_url',
+            // 'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
@@ -51,7 +52,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Comment,
-                    attributes: ['id', 'comment_data', 'post_id', 'user_id', 'commentedAt', 'updatedCommentAt'],
+                    attributes: ['id', 'comment_data', 'post_id', 'user_id', 'commentedAt'],
                 include: {
                     model: User,
                         attributes: ['username']
@@ -77,12 +78,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body.post_title);
     Post.create({
         post_title: req.body.post_title,
         post_data: req.body.post_data,
-        post_url: req.body.post_url,
-        user_id: req.body.user_id
+        // post_url: req.body.post_url,
+        user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -92,12 +92,13 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log(req.params.id);
     Post.update(
         {
             post_title: req.body.post_title,
             post_data: req.body.post_data,
-            post_url: req.body.post_url,
-            user_id: req.body.user_id
+            // post_url: req.body.post_url,
+            user_id: req.session.user_id
         },
         {
             where: {

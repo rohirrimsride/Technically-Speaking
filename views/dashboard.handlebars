@@ -1,17 +1,13 @@
 <section class="create-a-post">
     <h2>Create a Post</h2>
-    <form class="new-post-form">
+    <form class="create-post">
         <div class="inputs">
             <label for="new-post-title">Title</label>
             <input type="text" name="new-post-title" id="new-post-title">
         </div>
         <div class="inputs">
-            <label for="new-post-body">About</label>
-            <textarea id="new-post-body" name="new-post-body" cols="30" rows="10"></textarea>
-        </div>
-        <div class="inputs">
-            <label for="new-post-url">Link</label>
-            <input type="text" name="new-post-url" id="new-post-url">
+            <label for="new-post-body">Body</label>
+            <textarea id="new-post-body" name="new-post-body" cols="60" rows="30"></textarea>
         </div>
         <div>
             <button type="submit" class="create-post-btn">CREATE</button>
@@ -25,7 +21,7 @@
     <div class="post">
         {{>post-data}}
     </div>
-    <a class="update-post" href="/dashboard/edit/{{post.id}}">Update Post</a>
+    <a class="update-post-link" href="/dashboard/edit/{{post.id}}">Update Post</a>
     {{/each}}
 </section>
 {{/if}}

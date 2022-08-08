@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
             'id',
             'post_title',
             'post_data',
-            'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
@@ -59,7 +58,6 @@ router.get('/post/:id', (req, res) =>{
             'id',
             'post_title',
             'post_data',
-            'post_url',
             'user_id',
             'postedAt',
             'updatedPostAt'
@@ -84,9 +82,8 @@ router.get('/post/:id', (req, res) =>{
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
-        // serialize the data
         const post = dbPostData.get({ plain: true });
-        // pass data to template
+        console.log(post);
         res.render('post-single', {
             post,
             loggedIn: req.session.loggedIn

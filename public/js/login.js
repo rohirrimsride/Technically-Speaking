@@ -14,7 +14,7 @@ async function loginHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (response.ok) {
-            console.log('You are logged in.');
+            console.log(`You are logged in.`);
             document.location.replace('/dashboard/');
         } else {
             alert(response.statusText);
@@ -40,7 +40,7 @@ async function signUpHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (response.ok) {
-            console.log('Thanks for signing up!');
+            console.log(`Thanks for signing up!`);
             document.location.replace('/dashboard/');
         } else {
             alert(response.statusText);

@@ -22,13 +22,13 @@ Post.init(
                 notEmpty: true,
             }
         },
-        post_url: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isUrl: true,           
-            }
-        },
+        // post_url: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         isUrl: true,           
+        //     }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,

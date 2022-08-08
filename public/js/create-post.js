@@ -2,15 +2,14 @@ async function newPostHandler(event) {
     event.preventDefault();
 
     const post_title = document.querySelector('input[name="new-post-title"]').value;
-    const post_data = document.querySelector('input[name="new-post-body"]').value;
-    const post_url = document.querySelector('input[name="new-post-url"]').value;
-
-    const response = await fetch(`/api/posts`, {
+    const post_data = document.querySelector('textarea[name="new-post-body"]').value;
+    
+    console.log(post_title, post_data);
+    const response = await fetch('/api/posts', {
         method: 'post',
         body: JSON.stringify({
             post_title,
             post_data,
-            post_url
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -24,4 +23,4 @@ async function newPostHandler(event) {
     }
 }
 
-document.querySelector('.create-post-btn').addEventListener('submit', newPostHandler);
+document.querySelector('.create-post').addEventListener('submit', newPostHandler);

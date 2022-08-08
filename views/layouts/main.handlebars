@@ -15,6 +15,8 @@
                 <a class="nav-link" href="/">Home</a>
                 {{#if loggedIn}}
                 <a class="nav-link" href="/dashboard">Dashboard</a>
+                {{else}}
+                <a class="nav-link" href="/login">Dashboard</a>
                 {{/if}}
             </div>
             <div class="right">

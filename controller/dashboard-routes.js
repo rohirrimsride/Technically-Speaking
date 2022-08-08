@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../model');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-    console.log(req.session);
+router.get('/', withAuth, (req, res) => {
+    // console.log(req.session);
     console.log('======================');
     Post.findAll({
         where: {
@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
             'id',
             'post_title',
             'post_data',
-            'post_url',
             'user_id',
             'postedAt',
         ],
@@ -48,7 +47,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_title',
             'post_data',
-            'post_url',
             'user_id',
             'postedAt',
         ],
