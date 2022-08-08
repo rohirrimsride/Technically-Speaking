@@ -8,10 +8,7 @@ async function viewPostHandler(event) {
     const response = await fetch(`/post/${id}`, {
         method: 'get',
         body: JSON.stringify({
-            post_title,
-            post_data,
-            postedAt,
-            user_id
+            
         }),
         headers: {
             'Content-Type': 'application/json'
