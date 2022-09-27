@@ -16,9 +16,9 @@
 </section>
 
 <section class="blog-posts">
-    <form class="delete-post">
+    {{!-- <form class="delete-post">
     <button type="submit" class="delete-post-btn">DELETE POST</button>
-    </form>
+    </form> --}}
     <div class="post">
         <div class="post-header">
             <div class="post-title">
@@ -32,6 +32,9 @@
             <p class="body">{{post.post_data}}</p>
         </div>
     </div>
+    <form class="delete-post">
+    <button type="submit" class="delete-post-btn">DELETE</button>
+    </form>
 </section>
 
 <script src="/js/edit-post.js"></script>

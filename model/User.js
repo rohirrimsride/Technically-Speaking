@@ -37,8 +37,8 @@ User.init(
                 notEmpty: true,
                 len: [12,40],
                 is: {
-                    args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$/,
-                    msg: "Password must be 12-40 characters and include UPPERCASE, lowercase, number and special character."
+                    args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&])\S{8,}$/,
+                    msg: "Password must be 8-40 characters and include UPPERCASE, lowercase, number and special character."
                 },
             }
         }
