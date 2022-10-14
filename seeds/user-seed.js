@@ -7,9 +7,9 @@ const userData = [
         password: '$2b$12$Jmn3i0ZvdH/mpYOtPcnxPu80/OLUXRc.PLSMMUC4tHN06eDiYcEQy'
     },
     {
-        username: 'johnny6isAlive',
-        email: 'johnny6isAlive@80smail.com',
-        password: '$2b$12$Jmn3i0ZvdH/mpYOtPcnxPu80/OLUXRc.PLSMMUC4tHN06eDiYcEQy'
+        username: 'henryVIII',
+        email: 'tudors4ever@80smail.com',
+        password: 'Password1234'
     },
     {
         username: 'johnny7isAlive',
