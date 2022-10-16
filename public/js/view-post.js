@@ -14,10 +14,11 @@ async function viewPostHandler(event) {
             'Content-Type': 'application/json'
         }
     });
+    console.log(response);
 
     if (response.ok) {
         console.log('request submitted');
-        // document.location.replace('/dashboard');
+        document.location.replace(`/post-single/${id}`);
     } else {
         alert(response.statusText);
     }
