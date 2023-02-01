@@ -3,11 +3,11 @@
     <form class="update-post">
         <div class="inputs">
             <label for="update-post-title">Title</label>
-            <input type="text" name="update-post-title" id="update-post-title">
+            <input type="text" name="update-post-title" id="update-post-title" value="{{post.post_title}}" />
         </div>
         <div class="inputs">
             <label for="update-post-body">Body</label>
-            <textarea id="update-post-body" name="update-post-body" cols="30" rows="10"></textarea>
+            <textarea id="update-post-body" name="update-post-body" cols="30" rows="10">{{post.post_data}}</textarea>
         </div>
         <div>
             <button type="submit" class="update-post-btn">UPDATE</button>
@@ -16,9 +16,6 @@
 </section>
 
 <section class="blog-posts">
-    {{!-- <form class="delete-post">
-    <button type="submit" class="delete-post-btn">DELETE POST</button>
-    </form> --}}
     <div class="post">
         <div class="post-header">
             <div class="post-title">
@@ -33,7 +30,7 @@
         </div>
     </div>
     <form class="delete-post">
-    <button type="submit" class="delete-post-btn">DELETE</button>
+        <button type="submit" class="delete-post-btn">DELETE</button>
     </form>
 </section>
 
