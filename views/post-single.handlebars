@@ -2,14 +2,19 @@
     <div class="post">
         <div class="post-header">
             <div class="post-title">
-                <h3 class="title">{{post_title}}</h3>
+                <h3 class="title">{{post.post_title}}</h3>
             </div>
             <div class="post-author-date">
-                <p class="author-date">Posted by {{user}} on {{format_date postedAt}}</p>
+                <p class="author-date">Posted by {{post.user.username}} on {{format_date post.postedAt}}</p>
             </div>
         </div>
         <div class="post-body">
-            <p class="body">{{post_data}}</p>
+            <p class="body">{{post.post_data}}</p>
         </div>
     </div>
+    <form class="comment-post">
+        <button type="submit" class="comment-post-btn">COMMENT</button>
+    </form>
 </section>
+
+<script src="/js/view-post.js"></script>
