@@ -139,7 +139,7 @@ label {
 /* End Login/Signup module */
 
 /* Button Styling */
-.login-btn, .signup-btn, .create-post-btn, .update-post-btn, .delete-post-btn {
+.login-btn, .signup-btn, .create-post-btn, .update-post-btn, .delete-post-btn, .comment-post-btn {
     background-color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
     height: 30px;
