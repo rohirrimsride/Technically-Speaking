@@ -6,12 +6,12 @@ const Sequelize = require('sequelize');
 let sequelize;
 
 // This is for the Heroku setup commenting out until I figure out the Vercel/Supabase setup 
-// if (process.env.JAWSDB_URL) {
-//     sequelize = new Sequelize(process.env.JAWSDB_URL);
+if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 // This is for the RENDER POSTGRESSQL setup
-if (process.env.RENDER_URL) {
-    sequelize = new Sequelize(process.env.RENDER_URL);
+// if (process.env.RENDER_URL) {
+//     sequelize = new Sequelize(process.env.RENDER_URL);
 
 
 // Supabase database setup and access
