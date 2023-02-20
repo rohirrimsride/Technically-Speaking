@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/rohirrimsride/Technically-Speaking#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^2.7.1",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
     "dotenv": "^16.0.1",
