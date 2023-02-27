@@ -4,7 +4,7 @@
   # Technically Speaking
 
   ## Description
-  Technically Speaking is a tech blog to provide another place for interested people to share their thoughts, experiences and passion for technology.  
+  Technically Speaking is in the process of a directional shift.  It currently serves as a tech blog for users to post tech/coding related thoughts to share with other users.  However,   
 
   ## Table of Contents
   - [Installation](#installation)
@@ -28,6 +28,7 @@
 
   ## Screenshot
  ![image](https://user-images.githubusercontent.com/96882225/183337879-c055bc69-6f3e-4dc5-90a9-5974ffaaaf07.png)
+ Check out the deployed [site](https://technically-speaking-2022.herokuapp.com/)
 
 
   ## Questions
