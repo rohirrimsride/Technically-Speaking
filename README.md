@@ -32,9 +32,7 @@
 
 
   ## Questions
-  If you have any questions please contact me using either of these options.
-
-  GitHub Username: [rohirrimsride](https://github.com/rohirrimsride)
+  If you have any questions please contact me.
 
   Email Address: dave.barnes23@gmail.com
   
