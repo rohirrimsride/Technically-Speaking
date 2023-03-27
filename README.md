@@ -4,7 +4,7 @@
   # Technically Speaking
 
   ## Description
-  Technically Speaking is in the process of a directional shift.  It currently serves as a tech blog for users to post tech/coding related thoughts to share with other users.  However, to make this more useful to myself and hopefully others, I plan to pivot toward it being more of a vault for storing tech articles that I've found helpful and want to come back to, along with a short description or thoughts related to the content of the article.  
+  Technically Speaking is in the process of a directional shift.  It currently serves as a tech blog for users to post tech/coding related thoughts to share with other users.  However, to make this more useful to myself and hopefully others, I plan to pivot toward it being more of a vault for storing tech articles that I've found helpful and want to come back to, along with a short description or thoughts related to the content of the article.  Eventually I'm hoping to turn it into an installable app using Deta Space to host it. 
 
   ## Table of Contents
   - [Installation](#installation)
