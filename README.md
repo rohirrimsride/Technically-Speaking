@@ -27,7 +27,7 @@
   [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
 
   ## Screenshot
- ![image](https://github.com/rohirrimsride/Technically-Speaking/blob/main/assets/images/Technically-Speaking.png)
+ [![image](https://github.com/rohirrimsride/Technically-Speaking/blob/main/assets/images/Technically-Speaking.png)](https://technically-speaking-2022.herokuapp.com/)
  Check out the deployed [site](https://technically-speaking-2022.herokuapp.com/)
 
 
