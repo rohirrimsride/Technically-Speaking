@@ -21,7 +21,7 @@
   - Install the npm dependencies;
   - Create a .env file with a DB_NAME and your DB_USER, DB_PW 
   - In the server.js file change sequelize.sync force to true to create your database; turn off the server and change it back to false
-  - **Optional** Run 'node seeds/index.js' if you want to seed the database.
+  - **(Optional)** Run 'node seeds/index.js' if you want to seed the database.
   - Run 'npm start' in the CLI to run the app.
 
   ## Usage
