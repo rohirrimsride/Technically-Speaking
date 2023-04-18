@@ -7,6 +7,7 @@
   Technically Speaking is in the process of a directional shift.  It currently serves as a tech blog for users to post tech/coding related thoughts to share with other users.  However, to make this more useful to myself and hopefully others, I plan to pivot toward it being more of a vault for storing tech articles that I've found helpful and want to come back to, along with a short description or thoughts related to the content of the article.  Eventually I'm hoping to turn it into an installable app using Deta Space to host it. 
 
   ## Table of Contents
+  - [Getting Started](#gettingstarted)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Contribute](#contribute)
@@ -14,6 +15,17 @@
   - [Screenshot](#screenshot)
   - [Questions](#questions)
 
+  ## Getting Started
+  Technologies used in this application.
+  - mysql2
+  - sequelize
+  - connect-session-sequelize
+  - express
+  - express-handlebars
+  - express-session
+  - bcrypt
+  - dotenv
+ 
   ## Installation
   
   - git clone https://github.com/rohirrimsride/Technically-Speaking.git
@@ -41,5 +53,9 @@
   ## Questions
   If you have any questions please contact me.
 
+  <details>
+  <summary>Email Address:</summary>
+  dave.barnes23@gmail.com
+  </details>
   Email Address: dave.barnes23@gmail.com
   
