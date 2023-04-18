@@ -57,5 +57,5 @@
   <summary>Email Address:</summary>
   dave.barnes23@gmail.com
   </details>
-  Email Address: dave.barnes23@gmail.com
+  
   
