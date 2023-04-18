@@ -15,7 +15,14 @@
   - [Questions](#questions)
 
   ## Installation
-  Pull the repository; Install the npm dependencies; Create a .env file with a DB_NAME and your DB_USER, DB_PW; In server.js change sequelize.sync force to true to create your database; turn off the server and change it back to false; run 'node seeds/index.js' to seed the database; Run 'npm start' again in the database to run the app.
+  
+  - git clone https://github.com/rohirrimsride/Technically-Speaking.git
+  - Double check to confirm you have [Node.js](https://nodejs.org/en/download) installed on your computer.
+  - Install the npm dependencies;
+  - Create a .env file with a DB_NAME and your DB_USER, DB_PW 
+  - In the server.js file change sequelize.sync force to true to create your database; turn off the server and change it back to false
+  - **Optional** Run 'node seeds/index.js' if you want to seed the database.
+  - Run 'npm start' in the CLI to run the app.
 
   ## Usage
   Once the app is running you can create an account and start writing posts.
