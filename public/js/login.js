@@ -43,10 +43,20 @@ async function signUpHandler(event) {
             console.log(`Thanks for signing up!`);
             document.location.replace('/dashboard/');
         } else {
-            alert(response.statusText);
+            const data = await response.json().catch(() => ({}));
+            alert(data.message || response.statusText);
         }
     }
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginHandler);
 document.querySelector('.signup-form').addEventListener('submit', signUpHandler);
+
+document.querySelectorAll('.toggle-password').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        const showing = input.type === 'text';
+        input.type = showing ? 'password' : 'text';
+        btn.textContent = showing ? 'show' : 'hide';
+    });
+});

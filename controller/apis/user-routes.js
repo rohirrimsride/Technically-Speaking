@@ -1,13 +1,12 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../model');
+const { ValidationError, UniqueConstraintError } = require('sequelize');
 
 router.get('/', (req, res) => {
     User.findAll({
-        // attributes: { exclude: ['password']},
         attributes: [
             'id',
             'username',
-            'password',
             'email'
         ],
     })
@@ -23,13 +22,12 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: {exclude: ['password']},
         attributes: [
             'id',
             'username',
             'email'
         ],
-        includes: [
+        include: [
             {
                 model: Post,
                     attributes: ['id', 'post_title', 'post_data', 'postedAt', 'updatedPostAt']
@@ -43,6 +41,7 @@ router.get('/:id', (req, res) => {
     .then(dbUserData => {
         if (!dbUserData) {
             res.status(404).json({ message: 'There is no User with that ID' });
+            return;
         }
         res.json(dbUserData);
     })
@@ -68,7 +67,15 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        // UniqueConstraintError extends ValidationError, so check it first
+        if (err instanceof UniqueConstraintError) {
+            const field = Object.keys(err.fields || {}).some(key => key.includes('username')) ? 'username' : 'email';
+            res.status(400).json({ message: field === 'username' ? 'That username is already taken.' : 'That email is already in use.' });
+        } else if (err instanceof ValidationError) {
+            res.status(400).json({ message: err.errors.map(e => e.message).join('\n') });
+        } else {
+            res.status(500).json(err);
+        }
     });
 });
 
@@ -101,6 +108,10 @@ router.post('/login', (req, res) => {
             
             res.json({ message: 'Login successful'});
         });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 

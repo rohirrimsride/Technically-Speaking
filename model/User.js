@@ -20,14 +20,17 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true,
+                isEmail: {
+                    msg: "The email you entered is invalid."
+                },
             }
         },
         password: {
@@ -35,10 +38,13 @@ User.init(
             allowNull: false,
             validate: {
                 notEmpty: true,
-                len: [12,40],
+                len: {
+                    args: [12,40],
+                    msg: "Password must be 12-40 characters."
+                },
                 is: {
-                    args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&])\S{8,}$/,
-                    msg: "Password must be 8-40 characters and include UPPERCASE, lowercase, number and special character."
+                    args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&])\S+$/,
+                    msg: "Password must include UPPERCASE, lowercase, a number and a special character (# $ ^ + = ! * ( ) @ % &), with no spaces."
                 },
             }
         }

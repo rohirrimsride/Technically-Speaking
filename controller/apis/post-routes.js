@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../model');
+const apiAuth = require('../../utils/api-auth');
 
 router.get('/', (req, res) => {
     console.log(req.body)
@@ -75,7 +76,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', apiAuth, (req, res) => {
     Post.create({
         post_title: req.body.post_title,
         post_data: req.body.post_data,
@@ -89,27 +90,25 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
-    console.log(req.params.id);
-    Post.update(
-        {
-            post_title: req.body.post_title,
-            post_data: req.body.post_data,
-            // post_url: req.body.post_url,
+router.put('/:id', apiAuth, (req, res) => {
+    // only the post's author can update it
+    Post.findOne({
+        where: {
+            id: req.params.id,
             user_id: req.session.user_id
-        },
-        {
-            where: {
-                id: req.params.id
-            },
         }
-    )
+    })
     .then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'There is no Post matching that ID' });
             return;
         }
-        res.json(dbPostData);
+        return dbPostData.update({
+            post_title: req.body.post_title,
+            post_data: req.body.post_data,
+            // post_url: req.body.post_url,
+        })
+        .then(updatedPost => res.json(updatedPost));
     })
     .catch(err => {
         console.log(err);
@@ -117,10 +116,12 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', apiAuth, (req, res) => {
+    // only the post's author can delete it
     Post.destroy({
         where: {
-            id: req.params.id
+            id: req.params.id,
+            user_id: req.session.user_id
         }
     })
     .then(dbPostData => {

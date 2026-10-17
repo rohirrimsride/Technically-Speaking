@@ -42,7 +42,12 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
+    // only the post's author can open its edit page
+    Post.findOne({
+        where: {
+            id: req.params.id,
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'post_title',
